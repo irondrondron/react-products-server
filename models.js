@@ -16,8 +16,26 @@ const ProductSchema = new Schema({
   }
 }, { collection: 'products' })
 
-const Product = mongoose.model('Location', ProductSchema)
+const OrderSchema = new Schema({
+  productId: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  number: {
+    type: Number,
+    required: true
+  }
+}, { collection: 'orders' })
+
+const Product = mongoose.model('Product', ProductSchema)
+const Order = mongoose.model('Order', OrderSchema)
+
 
 module.exports = {
-  Product
+  Product,
+  Order
 }
